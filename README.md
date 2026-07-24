@@ -19,6 +19,7 @@ I built this as a way of trying to incorporate what I learned in my Environmenta
 
 ## Output
 Running the model will generate the following report: 
+'''
 WASTEWATER TREATMENT REPORT
 
 Concentrations at each stage:
@@ -90,7 +91,7 @@ TSS Removal: 97.6 %
 TN Removal: 79.0 %
 TP Removal: 89.2 %
 
-Saved graphs: chart_treatment_train.png, chart_sludge_breakdown.png
+'''
 
 ### Figure 1. Pollutant concentration through the treatment train
 
