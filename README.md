@@ -96,7 +96,7 @@ BOD Removal: 98.6 %
 TSS Removal: 97.6 %
 TN Removal: 79.0 %
 TP Removal: 89.2 %
-
+```
 ### Figure 1. Pollutant concentration through the treatment train
 
 ![Figure 1 – Treatment train results](Figure_1.png)
