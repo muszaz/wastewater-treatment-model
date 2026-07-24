@@ -17,86 +17,38 @@ I built this as a way of trying to incorporate what I learned in my Environmenta
 | Disinfection | First-order chlorine inactivation of *E. coli* based on hydraulic contact time |
 | Sludge production | Combined primary, biological, and chemical sludge estimate |
 
-## Output
-Running the model will generate the following report: 
+## Validation
+
+The model uses 2025 influent characteristics and average daily flow published by the Guelph Water Resource Recovery Centre (52,783 m³/day).
+
+Where available, plant design parameters were taken directly from the City of Guelph's *Wastewater Treatment and Biosolids Management Master Plan*, including:
+
+- Aeration tank volume: **26,277 m³**
+- Estimated chlorine contact tank volume: **~1,300 m³**
+
+The model predicts:
+
+- BOD removal: **98.6%**
+- TSS removal: **97.6%**
+- TN removal: **79.0%**
+- TP removal: **89.2%**
+- Total sludge production: **11,574 kg/day**
+
+Predicted sludge production is approximately **85%** of the plant's reported 2025 value (13,684 kg/day), providing a reasonable engineering validation for a simplified treatment model.
 
 ## Output
 
-Running the model will generate the following report:
+A complete example of the simulator's terminal output is available in
+[`outputs_results.txt`](outputs_results.txt).
 
-```text
-WASTEWATER TREATMENT REPORT
+The report includes:
 
-Concentrations at each stage:
+- Pollutant concentrations at each treatment stage
+- Design parameters (HRT, F/M ratio, oxygen demand)
+- Sludge production estimates
+- Final effluent compliance check
+- Overall removal efficiencies
 
-Influent
-  BOD: 287 mg/L
-  TSS: 262 mg/L
-  TP : 5.3 mg/L
-  TN : 32.2 mg/L
-  E.coli: 10000000.0
-
-After Preliminary
-  BOD: 287 mg/L
-  TSS: 235.8 mg/L
-  TP : 5.3 mg/L
-  TN : 32.2 mg/L
-  E.coli: 10000000.0
-
-After Primary
-  BOD: 200.9 mg/L
-  TSS: 106.11 mg/L
-  TP : 4.77 mg/L
-  TN : 32.2 mg/L
-  E.coli: 10000000.0
-
-After Secondary
-  BOD: 3.94 mg/L
-  TSS: 15.92 mg/L
-  TP : 3.82 mg/L
-  TN : 22.54 mg/L
-  E.coli: 10000000.0
-
-After Tertiary
-  BOD: 3.94 mg/L
-  TSS: 6.37 mg/L
-  TP : 0.57 mg/L
-  TN : 6.76 mg/L
-  E.coli: 10000000.0
-
-After Disinfection
-  BOD: 3.94 mg/L
-  TSS: 6.37 mg/L
-  TP : 0.57 mg/L
-  TN : 6.76 mg/L
-  E.coli: 40.65
-
-Design Parameters
-HRT: 0.5 days
-F/M Ratio: 0.135
-MLSS: 3000 mg/L
-Oxygen Required: 9303.5 kg/day
-Oxygen supply needed: 12404.6 kg/day
-
-Sludge Production
-Primary: 6845.4 kg/day
-Biological: 4214.6 kg/day
-Chemical: 513.6 kg/day
-Total: 11573.6 kg/day
-
-Final Effluent Check
-BOD : PASS
-TSS : PASS
-TP : PASS
-TN : PASS
-E_coli : PASS
-
-Removal Efficiencies
-BOD Removal: 98.6 %
-TSS Removal: 97.6 %
-TN Removal: 79.0 %
-TP Removal: 89.2 %
-```
 ### Figure 1. Pollutant concentration through the treatment train
 
 ![Figure 1 – Treatment train results](Figure_1.png)
@@ -104,4 +56,46 @@ TP Removal: 89.2 %
 ### Figure 2. Simulated daily sludge production
 
 ![Figure 2 – Sludge production breakdown](Figure_2.png)
+
+## Engineering calculations
+
+The simulator computes:
+
+- Hydraulic Retention Time (HRT)
+- Food-to-Microorganism (F/M) ratio
+- Biological oxygen demand (BOD) using Monod kinetics
+- Oxygen demand
+- Primary, biological, and chemical sludge production
+- Overall pollutant removal efficiencies
+- Compliance with EPA irrigation reuse guidelines
+
+
+## Limitations
+
+This model is intended as an engineering simulation project and includes several simplifying assumptions:
+
+- Secondary treatment is represented as a single completely mixed activated sludge reactor (CSTR).
+- TN and TP removal after secondary treatment use representative removal efficiencies rather than full biological nutrient removal kinetics.
+- Clarifier performance is modeled using representative removal percentages.
+- The disinfection model assumes first-order chlorine decay with literature-based kinetics rather than plant-specific calibration.
+- Flow is assumed constant (average daily flow); storm events and diurnal variation are not modeled.
+
+
+## Tech Stack
+- Python 
+- matplotlib
+- Environmental engineering process modeling
+- Mass balance analysis
+
+
+## Sources
+
+- **City of Guelph**, *Wastewater Services Annual Performance Report*, 2023 & 2025 reporting periods — flow, influent loading, sludge production, and effluent compliance data, including confirmation that the real plant consistently meets its E. coli/disinfection limits.
+  https://guelph.ca/wp-content/uploads/2023-Wastewater-Services-Annual-Report.pdf
+
+- **City of Guelph / Jacobs (CH2M Hill)**, *Wastewater Treatment and Biosolids Management Master Plan*, Technical Memorandum 2: *Definition of the Problem* (Final, Nov. 30, 2020) — source for aeration tank volumes (Table 6-5), plant rated capacities (Section 3.1), and disinfection system design/contact time (Section 6.7).
+  https://guelph.ca/wp-content/uploads/AppA_AODA_reduced.pdf
+
+- **City of Guelph**, *Wastewater Management in Guelph* — public overview of the wastewater treatment process and facility.
+  https://guelph.ca/living/environment/water/groundwater/wastewater/
 
