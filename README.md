@@ -19,10 +19,16 @@ I built this as a way of trying to incorporate what I learned in my Environmenta
 
 ## Output
 Running the model will generate the following report: 
-'''
+
+## Output
+
+Running the model will generate the following report:
+
+```text
 WASTEWATER TREATMENT REPORT
 
 Concentrations at each stage:
+
 Influent
   BOD: 287 mg/L
   TSS: 262 mg/L
@@ -38,45 +44,45 @@ After Preliminary
   E.coli: 10000000.0
 
 After Primary
-  BOD: 200.89999999999998 mg/L
+  BOD: 200.9 mg/L
   TSS: 106.11 mg/L
   TP : 4.77 mg/L
   TN : 32.2 mg/L
   E.coli: 10000000.0
 
 After Secondary
-  BOD: 3.9431616341030193 mg/L
-  TSS: 15.916500000000003 mg/L
-  TP : 3.816 mg/L
+  BOD: 3.94 mg/L
+  TSS: 15.92 mg/L
+  TP : 3.82 mg/L
   TN : 22.54 mg/L
   E.coli: 10000000.0
 
 After Tertiary
-  BOD: 3.9431616341030193 mg/L
-  TSS: 6.366600000000002 mg/L
-  TP : 0.5724 mg/L
-  TN : 6.7620000000000005 mg/L
+  BOD: 3.94 mg/L
+  TSS: 6.37 mg/L
+  TP : 0.57 mg/L
+  TN : 6.76 mg/L
   E.coli: 10000000.0
 
 After Disinfection
-  BOD: 3.9431616341030193 mg/L
-  TSS: 6.366600000000002 mg/L
-  TP : 0.5724 mg/L
-  TN : 6.7620000000000005 mg/L
-  E.coli: 40.6503767393436
+  BOD: 3.94 mg/L
+  TSS: 6.37 mg/L
+  TP : 0.57 mg/L
+  TN : 6.76 mg/L
+  E.coli: 40.65
 
 Design Parameters
 HRT: 0.5 days
 F/M Ratio: 0.135
 MLSS: 3000 mg/L
 Oxygen Required: 9303.5 kg/day
-Oxygen supply needed (accounting for transfer efficiency): 12404.6 kg/day
+Oxygen supply needed: 12404.6 kg/day
 
 Sludge Production
-Primary: 6845.427269999999 kg/day
-Biological: 4214.583567351543 kg/day
-Chemical: 513.6208164000001 kg/day
-Total: 11573.631653751543 kg/day
+Primary: 6845.4 kg/day
+Biological: 4214.6 kg/day
+Chemical: 513.6 kg/day
+Total: 11573.6 kg/day
 
 Final Effluent Check
 BOD : PASS
@@ -90,8 +96,6 @@ BOD Removal: 98.6 %
 TSS Removal: 97.6 %
 TN Removal: 79.0 %
 TP Removal: 89.2 %
-
-'''
 
 ### Figure 1. Pollutant concentration through the treatment train
 
